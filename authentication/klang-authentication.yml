@@ -1,0 +1,104 @@
+generated: '2026-07-19'
+method: searched
+source: https://seed.game/.well-known/openid-configuration
+docs: https://seed.game/login
+summary:
+  types:
+  - oauth2
+  - openIdConnect
+  oauth2_flows:
+  - authorizationCode
+  - implicit
+  - password
+  - clientCredentials
+  - deviceCode
+  - refreshToken
+  api_key_in: []
+  note: >-
+    Klang publishes no developer-facing authentication documentation. This
+    profile is read verbatim from the OpenID Connect discovery documents served
+    for the SEED player account system. The endpoint shape (oauth2/authorize,
+    oauth2/device_authorize, applicationId + authenticationType claims)
+    identifies the identity provider as FusionAuth.
+schemes:
+- name: SEEDOpenIDConnect
+  type: openIdConnect
+  openIdConnectUrl: https://seed.game/.well-known/openid-configuration
+  issuer: https://seed.game
+  sources:
+  - well-known/klang-openid-configuration.json
+- name: SEEDOAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.seed.game/oauth2/authorize
+    tokenUrl: https://login.seed.game/oauth2/token
+  - flow: implicit
+    authorizationUrl: https://login.seed.game/oauth2/authorize
+  - flow: password
+    tokenUrl: https://login.seed.game/oauth2/token
+  - flow: clientCredentials
+    tokenUrl: https://login.seed.game/oauth2/token
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://login.seed.game/oauth2/device_authorize
+    tokenUrl: https://login.seed.game/oauth2/token
+  sources:
+  - well-known/klang-openid-configuration.json
+endpoints:
+  authorization: https://login.seed.game/oauth2/authorize
+  token: https://login.seed.game/oauth2/token
+  device_authorization: https://login.seed.game/oauth2/device_authorize
+  userinfo: https://login.seed.game/oauth2/userinfo
+  end_session: https://login.seed.game/oauth2/logout
+  jwks: https://login.seed.game/.well-known/jwks.json
+token_endpoint_auth_methods:
+- client_secret_basic
+- client_secret_post
+- none
+id_token_signing_alg_values:
+- ES256
+- ES384
+- ES512
+- HS256
+- HS384
+- HS512
+- RS256
+- RS384
+- RS512
+claims_supported:
+- applicationId
+- at_hash
+- aud
+- authenticationType
+- birthdate
+- c_hash
+- email
+- email_verified
+- exp
+- family_name
+- given_name
+- iat
+- iss
+- jti
+- middle_name
+- name
+- nbf
+- nonce
+- phone_number
+- phone_number_verified
+- picture
+- preferred_username
+- roles
+- sub
+observations:
+- >-
+  The discovery document at https://login.seed.game/ reports issuer "acme.com",
+  the unchanged FusionAuth default placeholder, while the document at
+  https://seed.game/ reports the correct issuer https://seed.game. A relying
+  party validating the iss claim against the login host would reject tokens.
+- >-
+  Both the implicit and resource-owner-password grants remain enabled; RFC 9700
+  (OAuth 2.0 Security Best Current Practice) advises against both.
+- >-
+  Symmetric HS256/HS384/HS512 are advertised as ID-token signing algorithms
+  alongside the asymmetric families.
