@@ -1,0 +1,46 @@
+# Klang Games
+
+> Klang Games is an entertainment and game development studio in Berlin, founded in 2013 by three Icelandic co-founders out of the EVE Online orbit. Its flagship product is SEED, a persistent large-scale MMO society simulator run on Google Cloud. Klang publishes no developer platform, no API documentation and no SDKs; the only publicly discoverable machine interface is the OpenID Connect provider behind SEED player accounts.
+
+## Company
+
+- [Klang Games](https://www.klang-games.com/): Studio homepage.
+- [About](https://www.klang-games.com/about): Founders, history and studio focus.
+- [News](https://www.klang-games.com/news): Studio announcements.
+- [Careers](https://www.klang-games.com/careers): Open roles.
+- [GitHub organization](https://github.com/klanggames): Verified org; mostly Terraform modules, dev-container features and Houdini/Unity tooling forks — no client SDKs.
+
+## SEED
+
+- [SEED](https://seed.game/): The game, sign-up and store.
+- [Sign up](https://seed.game/signup) / [Log in](https://seed.game/login)
+- [News from Avesta](https://seed.game/news-from-avesta): In-world and release news.
+- [Support center](https://klang-games.eu.theymes.com/hc/en/seed): Player help center.
+- [Status](https://status.seed.game/): Atlassian Statuspage covering game deployments, portal, website and upstream Google Cloud/SendGrid dependencies.
+- [Terms of use](https://seed.game/legal/terms-of-use)
+- [Privacy policy](https://seed.game/legal/privacy-policy)
+
+## Machine interfaces
+
+- [OIDC discovery (seed.game)](https://seed.game/.well-known/openid-configuration): Issuer https://seed.game.
+- [OIDC discovery (login.seed.game)](https://login.seed.game/.well-known/openid-configuration): Same endpoint set; advertises the unchanged FusionAuth default issuer `acme.com`.
+- [JWKS](https://login.seed.game/.well-known/jwks.json)
+- Authorization: https://login.seed.game/oauth2/authorize
+- Token: https://login.seed.game/oauth2/token
+- Device authorization: https://login.seed.game/oauth2/device_authorize
+- UserInfo: https://login.seed.game/oauth2/userinfo
+- Scopes: `openid`, `offline_access`, `email`, `phone`, `profile`
+
+## Artifacts in this repo
+
+- [Well-known index](well-known/klang-well-known.yml)
+- [Authentication profile](authentication/klang-authentication.yml)
+- [OAuth scopes](scopes/klang-scopes.yml)
+- [Conformance](conformance/klang-conformance.yml)
+- [Lifecycle](lifecycle/klang-lifecycle.yml)
+- [Domain security](security/klang-domain-security.yml)
+
+## Notes
+
+- There is no OpenAPI, AsyncAPI, GraphQL schema, webhook catalog, CLI, sandbox, changelog or client SDK published by Klang. Those artifacts are absent from this repo by design, not by omission.
+- No `/.well-known/security.txt` and no published vulnerability disclosure or trust-center program were found on any Klang or SEED host.

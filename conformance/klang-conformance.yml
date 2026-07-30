@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: derived
+source: well-known/klang-openid-configuration.json
+note: >-
+  Derived from the SEED OpenID Connect discovery documents. Klang publishes no
+  developer documentation and no compliance program, so nothing here is a
+  vendor claim — each entry is asserted only from an observed artifact.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Advertises authorization, token and device-authorization endpoints with
+    authorization_code, refresh_token, client_credentials, implicit, password
+    and device_code grants.
+- id: oidc-core
+  conforms: true
+  evidence: >-
+    Issues ID tokens; advertises the standard openid/profile/email/phone/
+    offline_access scopes and the OIDC Core claim set.
+- id: oidc-discovery
+  conforms: true
+  evidence: /.well-known/openid-configuration returns 200 on seed.game and login.seed.game
+- id: rfc7517-jwks
+  conforms: true
+  evidence: https://login.seed.game/.well-known/jwks.json returns 200 with an RSA key set
+- id: rfc8628-device-authorization-grant
+  conforms: true
+  evidence: device_authorization_endpoint advertised; device_code grant supported
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404 on both hosts
+- id: rfc9700-oauth-security-bcp
+  conforms: false
+  evidence: >-
+    Implicit and resource-owner-password grants remain enabled, both of which
+    RFC 9700 advises against; login.seed.game additionally advertises the
+    default placeholder issuer "acme.com".
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on all Klang and SEED hosts
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no published API contract to assert against

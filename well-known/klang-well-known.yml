@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of /.well-known/ on Klang Games and SEED hosts
+hosts:
+- host: https://seed.game
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: klang-openid-configuration.json
+    note: OIDC discovery served from the game host; issuer is https://seed.game
+  - path: /.well-known/jwks.json
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://login.seed.game
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: klang-login-openid-configuration.json
+    note: >-
+      Same endpoint set as the seed.game document, but the issuer claim is the
+      literal string "acme.com" — the unchanged FusionAuth default. Recorded as
+      observed; not corrected here.
+  - path: /.well-known/jwks.json
+    status: 200
+    file: klang-jwks.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://www.klang-games.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

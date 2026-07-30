@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: https://status.seed.game/
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: >-
+    No public API versioning policy. Klang ships a game client, not a versioned
+    developer contract; the only public machine surface is the SEED OIDC
+    provider, which is unversioned.
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.seed.game/
+status_page_platform: Atlassian Statuspage
+status_page_components:
+- group: SEED Services
+  components:
+  - Game Deployments
+  - Friends & Family Deployment
+  - Portal
+  - seed.game website
+- group: Google Cloud Platform
+  components:
+  - Networking
+  - Pub/Sub
+  - BigQuery
+  - Kubernetes Engine
+  - Compute Engine
+  - Cloud Storage
+  - Cloud SQL
+- group: Third party
+  components:
+  - SendGrid
+deprecated_operations: []

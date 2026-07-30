@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.klang-games.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 15 02:58:46 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: seed.game
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  5 21:25:26 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: login.seed.game
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 11 01:40:34 2026 GMT
+  hsts: false
+domains:
+- domain: klang-games.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: seed.game
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
