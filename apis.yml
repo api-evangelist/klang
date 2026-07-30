@@ -1,21 +1,71 @@
 aid: klang
-name: Klang
-description: 'Klang is a company surfaced as a portfolio company of northzone and added to the API Evangelist
-  network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.'
+name: Klang Games
+description: 'Klang Games is an entertainment and game development studio headquartered
+  in Berlin, founded in 2013 by three Icelandic co-founders — Mundi Vondi (CEO), Oddur
+  Snær Magnússon (CTO) and Ívar Emilsson (CCO) — several of whom came out of CCP and
+  EVE Online. Its flagship product is SEED, a persistent large-scale MMO society simulator
+  built on Google Cloud, backed by investors including Animoca Brands, Supercell, LEGO
+  Ventures, Anthos Capital, Kingway Capital and Northzone. Klang publishes no developer
+  platform: there is no API documentation, no SDKs and no partner program. The only
+  publicly discoverable machine interface is the OpenID Connect provider behind SEED
+  player accounts, captured in this repo from its discovery documents.'
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://images.ctfassets.net/a9xx8dr17bmr/5223oQiDQ5KEJejerjCXXU/52485195787ac411bfc206caab898ea5/Huge-new-MMO-is-Sims-4-Stardew-Valley-and-Star-Citizen-all-in-one-1536x864.jpeg
 url: https://raw.githubusercontent.com/api-evangelist/klang/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - northzone
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: no-developer-platform-oidc-only
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Consumer
-apis: []
+- Gaming
+- Game Development
+- MMO
+- Simulation
+- Entertainment
+- Identity
+- OpenID Connect
+- Berlin
+apis:
+- aid: klang:seed-identity
+  name: SEED Identity (OpenID Connect)
+  description: 'The OpenID Connect and OAuth 2.0 provider behind SEED player accounts.
+    Klang publishes no documentation for it; this entry is recorded from the public
+    discovery documents at seed.game and login.seed.game, which advertise authorization,
+    token, device-authorization, userinfo, logout and JWKS endpoints with the standard
+    OIDC scope set. Identified as a FusionAuth deployment from its endpoint shape and
+    its applicationId/authenticationType claims.'
+  humanURL: https://seed.game/login
+  baseURL: https://login.seed.game/oauth2
+  tags:
+  - Identity
+  - OpenID Connect
+  - OAuth
+  - Authentication
+  properties:
+  - type: OpenIDConnect
+    url: https://seed.game/.well-known/openid-configuration
+  - type: Authentication
+    url: authentication/klang-authentication.yml
+  - type: OAuthScopes
+    url: scopes/klang-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,4 +73,41 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://klang-games.com
+  url: https://www.klang-games.com/
+- type: About
+  url: https://www.klang-games.com/about
+- type: Blog
+  url: https://www.klang-games.com/news
+- type: GitHubOrganization
+  url: https://github.com/klanggames
+- type: Support
+  url: https://klang-games.eu.theymes.com/hc/en/seed
+- type: SignUp
+  url: https://seed.game/signup
+- type: Login
+  url: https://seed.game/login
+- type: TermsOfService
+  url: https://seed.game/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://seed.game/legal/privacy-policy
+- type: StatusPage
+  url: https://status.seed.game/
+- type: Lifecycle
+  url: lifecycle/klang-lifecycle.yml
+- type: Authentication
+  url: authentication/klang-authentication.yml
+- type: OAuthScopes
+  url: scopes/klang-scopes.yml
+- type: WellKnown
+  url: well-known/klang-well-known.yml
+- type: Conformance
+  url: conformance/klang-conformance.yml
+- type: DomainSecurity
+  url: security/klang-domain-security.yml
+- type: LLMsTxt
+  url: llms/klang-llms.txt
+x-enrichment:
+  date: '2026-07-20'
+  status: nochange
+  artifacts_added: 0
+  pass: local-v1
