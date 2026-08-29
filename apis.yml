@@ -9,6 +9,17 @@ description: 'Klang Games is an entertainment and game development studio headqu
   platform: there is no API documentation, no SDKs and no partner program. The only
   publicly discoverable machine interface is the OpenID Connect provider behind SEED
   player accounts, captured in this repo from its discovery documents.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
